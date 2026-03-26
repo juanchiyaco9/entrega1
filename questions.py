@@ -1,7 +1,23 @@
 import random
-words = ["python","programa","variable","funcion","bucle","cadena","entero","lista",] 
+#Agrega categorías
+categorias = {"programacion": ["python","programa","variable","funcion","bucle"],
+    "tipos": ["cadena","entero","lista"]} 
 
-word = random.choice(words)
+print("Categorías disponibles:")
+
+for cat in categorias:
+    print(cat) #muestra categorias
+
+eleccion = input("Elegí una categoría: ").lower()
+
+
+if eleccion not in categorias:
+    print("Categoría no válida. Se elegirá una al azar.")
+    eleccion = random.choice(list(categorias.keys()))
+
+
+word = random.choice(categorias[eleccion])
+
 guessed = []
 attempts = 6
 puntaje = 0 
